@@ -44,13 +44,13 @@ $nombre_uinal = $haab[1];
         <div id='formulario' style="padding: 15px; width: auto;">
           <?php 
             echo "<a href='models/paginaModeloElemento.php?elemento=uinal#".$nombre_uinal."'>";
-            echo "<img src=\"img/Uinales/".$nombre_uinal.".png\" alt=\"Error al intentar mostrar al uinal ".$nombre_uinal." \" width=\"100px\" height=\"100px\" >";
+            echo "<img src=\"img/uinal/".$nombre_uinal.".png\" alt=\"Error al intentar mostrar al uinal ".$nombre_uinal." \" width=\"100px\" height=\"100px\" >";
             echo "</a>";
           ?>
           <h5 style="color: whitesmoke;">Calendario Haab : <?php echo isset($fecha_haab) ? $fecha_haab : ''; ?></h5>
           <?php 
             echo "<a href='models/paginaModeloElemento.php?elemento=nahual#".$nombre_nahual."'>";
-            echo "<img src=\"img/Nahuales/".$nombre_nahual.".png\" alt=\"Error al intentar mostrar al nahual ".$nombre_nahual." \" width=\"100px\" height=\"100px\" >";
+            echo "<img src=\"img/nahual/".$nombre_nahual.".png\" alt=\"Error al intentar mostrar al nahual ".$nombre_nahual." \" width=\"100px\" height=\"100px\" >";
             echo "</a>";  
           ?>          
           <h5 style="color: whitesmoke;">Calendario Cholquij : <?php echo isset($cholquij) ? $cholquij : ''; ?></h5>
