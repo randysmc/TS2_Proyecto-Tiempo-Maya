@@ -44,24 +44,29 @@ $nombre_uinal = $haab[1];
         <div id='formulario' style="padding: 15px; width: auto;">
           <?php 
             echo "<a href='models/paginaModeloElemento.php?elemento=uinal#".$nombre_uinal."'>";
-            echo "<img src=\"img/uinal/".$nombre_uinal.".png\" alt=\"Error al intentar mostrar al uinal ".$nombre_uinal." \" width=\"100px\" height=\"100px\" >";
+            echo "<img src=\"img/uinal/".$nombre_uinal.".png\" alt=\"Error al intentar mostrar al uinal ".$nombre_uinal." \" class='imagen-elemento' >";
             echo "</a>";
           ?>
-          <h5 style="color: whitesmoke;">Calendario Haab : <?php echo isset($fecha_haab) ? $fecha_haab : ''; ?></h5>
+          <h5 class="fecha">Calendario Haab : <?php echo isset($fecha_haab) ? $fecha_haab : ''; ?></h5>
           <?php 
             echo "<a href='models/paginaModeloElemento.php?elemento=nahual#".$nombre_nahual."'>";
-            echo "<img src=\"img/nahual/".$nombre_nahual.".png\" alt=\"Error al intentar mostrar al nahual ".$nombre_nahual." \" width=\"100px\" height=\"100px\" >";
+            echo "<img src=\"img/nahual/".$nombre_nahual.".png\" alt=\"Error al intentar mostrar al nahual ".$nombre_nahual." \" class='imagen-elemento' >";
             echo "</a>";  
           ?>          
-          <h5 style="color: whitesmoke;">Calendario Cholquij : <?php echo isset($cholquij) ? $cholquij : ''; ?></h5>
-          <h5 style="color: whitesmoke;">Cuenta Larga : <?php echo isset($cuenta_larga) ? $cuenta_larga : ''; ?></h5>
-          <label style="color: whitesmoke;"><?php echo isset($fecha_consultar) ? $fecha_consultar : ''; ?></label>
+          <h5 class="fecha">Calendario Cholquij : <?php echo isset($cholquij) ? $cholquij : ''; ?></h5>
+          <h5 class="fecha">Cuenta Larga : <?php echo isset($cuenta_larga) ? $cuenta_larga : ''; ?></h5>
+          <label class="fecha"><?php echo isset($fecha_consultar) ? $fecha_consultar : ''; ?></label>
         </div>
       </div>
     </section>
   </div>
- 
-  
+  <div>
+    <section id="inicio">
+      <div id="inicioContainer" class="inicio-container">
+        <img src="img/LogoTiempoMaya.png" alt="No se puede mostrar el logo." class="logo">
+      </div>
+    </section>
+  </div>
 <?php include "blocks/bloquesJs1.html" ?>
 
 </body>
