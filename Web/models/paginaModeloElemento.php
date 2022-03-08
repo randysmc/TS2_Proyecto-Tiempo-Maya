@@ -7,8 +7,9 @@ session_start(); ?>
 
 $conn = include '../conexion/conexion.php';
 $tabla = $_GET['elemento'];
-$table =strtolower($tabla);
-$datos = $conn->query("SELECT nombre,significado,htmlCodigo FROM tiempo_maya." . $table . ";");
+$table = strtolower($tabla);
+$datos = $conn->query("SELECT nombre,significado,htmlCodigo,ruta FROM tiempo_maya." . $table . ";");
+
 $elementos = $datos;
 $informacion = $conn->query("SELECT htmlCodigo FROM tiempo_maya.pagina WHERE nombre='" . $tabla . "';");
 
@@ -47,27 +48,28 @@ $informacion = $conn->query("SELECT htmlCodigo FROM tiempo_maya.pagina WHERE nom
                 <div class="section-header">
                     <h3 class="section-title">INFORMACION</h3>
                 </div>
-                <?php foreach($informacion as $info){
+                <?php foreach ($informacion as $info) {
                     echo $info['htmlCodigo'];
-                }?>
+                } ?>
             </div>
 
         </div>
     </section>
     <hr>
-    
+
     <section id="elementos">
         <div class="container">
             <div class="row about-container">
                 <div class="section-header">
                     <h3 class="section-title">Elementos</h3>
                 </div>
-                <?php foreach($datos as $dato){
-                   $stringPrint = "<h4 id='".$dato['nombre']."'>".$dato['nombre']."</h4>";
-                   $stringPrint.="<h5>Significado</h5> <p>".$dato['significado']."</p>";
-                   $stringPrint.="<p>".$dato['htmlCodigo']."</p> <hr>";
-                   echo $stringPrint;
-                }?>
+                <?php foreach ($datos as $dato) {
+                    $stringPrint = "<h4 id='" . $dato['nombre'] . "'>" . $dato['nombre'] . "</h4>";
+                    $stringPrint .= "<h5>Significado</h5> <p>" . $dato['significado'] . "</p>";
+                    $stringPrint .= "<p>" . $dato['htmlCodigo'] . "</p> ";
+                    $stringPrint .= "<img src="."..\\imgs\\".$dato['ruta']." alt='".$dato['ruta']."' class='img-elemento'> <hr>";
+                    echo $stringPrint;
+                } ?>
             </div>
 
         </div>

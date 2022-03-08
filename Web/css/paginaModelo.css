@@ -266,3 +266,43 @@ h5{
   line-height: 24px;
   font-size: 14px;
 }
+
+
+
+.img-elemento {
+  width: 200px;
+  margin: 25px auto;
+}
+
+/*
+Animación Rueda
+*/
+.rueda{
+  animation-name: rueda;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  -webkit-animation-name: rueda; /* Chrome, Safari, Opera */
+  -webkit-animation-duration: 10s; /* Chrome, Safari, Opera */
+  -webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
+  -webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
+  display: block;
+  margin: 0 auto;
+  height:400px;
+  width: 400px;
+}
+/* Chrome, Safari, Opera */
+@-webkit-keyframes rueda {
+  100% {
+    -ms-transform: rotate(360deg); /* IE 9 */
+    -webkit-transform: rotate(360deg); /* Chrome, Safari, Opera */ 
+    transform: rotate(360deg);
+  }
+}
+@keyframes rueda{
+  100% {
+    -ms-transform: rotate(360deg); /* IE 9 */
+    -webkit-transform: rotate(360deg); /* Chrome, Safari, Opera */ 
+    transform: rotate(360deg);
+  }
+}

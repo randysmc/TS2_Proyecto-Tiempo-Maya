@@ -34,9 +34,15 @@ if ($reversa) {
 }
 
 
-$Query = $conn->query("SELECT nombre FROM uinal WHERE idweb=".$mes." ;");
-$row = mysqli_fetch_assoc($Query);
-$uinal = $row['nombre']." ";
-return $uinal.strval($dia);
+$query = $conn->query("SELECT idweb,nombre,ruta FROM uinal WHERE idweb=".$mes." ;");
+$row = mysqli_fetch_assoc($query);
+$uinalDate = $row['nombre']." ";
+$uinalDate = $uinalDate.strval($dia);
+$uinalRuta = $row['ruta'];
+$uinalData = array(
+    "uinal-date" => $uinalDate,
+    "uinal-ruta" => $uinalRuta
+);
+return $uinalData;
 
 ?>
