@@ -1,9 +1,9 @@
 <?php
 $servername = "127.0.0.1";
 
-$username_DB = "TiempoMaya";
+$username_DB = "root";
 $password_DB = "password";
-$dbname = "tiempo_maya";
+$dbname = "tiempomaya";
 
 
 
