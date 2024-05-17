@@ -1,8 +1,11 @@
 <?php
 $servername = "127.0.0.1";
+
 $username_DB = "TiempoMaya";
 $password_DB = "password";
 $dbname = "tiempo_maya";
+
+
 
 // Create connection
 $conn = new mysqli($servername, $username_DB, $password_DB, $dbname, '3306');
