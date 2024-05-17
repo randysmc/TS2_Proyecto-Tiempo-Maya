@@ -50,6 +50,16 @@ try {
     echo 'Excepción capturada: ',  $e->getMessage(), "\n";
     die(); // Terminar la ejecución si hay un error en cualquiera de los archivos incluidos
 }
+$nahual = include 'backend/buscar/conseguir_nahual_nombre.php';
+$energia = include 'backend/buscar/conseguir_energia_numero.php';
+$haab = include 'backend/buscar/conseguir_uinal_nombre.php';
+$cuenta_larga = include 'backend/buscar/conseguir_fecha_cuenta_larga.php';
+$cholquij = $nahual." ". strval($energia);
+$nombre_nahual = $nahual;
+$numero_energia = strval($energia);
+$fecha_haab = $haab[0];
+$nombre_uinal = $haab[1];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
