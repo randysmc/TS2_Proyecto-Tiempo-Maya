@@ -9,7 +9,7 @@ $dbname = "tiempomaya";
 $dbname = "tiempomaya";
 
 // Create connection
-$conn = new mysqli($servername, $username_DB, $password_DB, $dbname, '3306');
+$conn = new mysqli($servername, $username_DB, $password_DB, $dbname, $port);
 if ($conn->connect_error) {
     echo 'Conexion fallida: ' . $conn->connect_error;
     die("Connection failed: " . $conn->connect_error);

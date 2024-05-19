@@ -6,7 +6,8 @@ session_start();
 $conn = include '../conexion/conexion.php';
 $tabla = $_GET['elemento'];
 $table = strtolower($tabla);
-$datos = $conn->query("SELECT nombre,significado,htmlCodigo FROM tiempomaya." . $table . ";");
+$datos = $conn->query("SELECT nombre,significado,htmlCodigo,ruta FROM tiempo_maya." . $table . ";");
+
 $elementos = $datos;
 $informacion = $conn->query("SELECT htmlCodigo FROM tiempomaya.pagina WHERE nombre='" . $tabla . "';");
 
@@ -61,10 +62,8 @@ $horario = date("H:i:s");
                 <?php foreach ($datos as $dato) {
                     $stringPrint = "<h4 id='" . $dato['nombre'] . "'>" . $dato['nombre'] . "</h4>";
                     $stringPrint .= "<h5>Significado</h5> <p>" . $dato['significado'] . "</p>";
-                    $stringPrint .= "<div class=\"imagen-div\" >";
-                    $stringPrint .= "<img src=\"../img/" . $tabla . "/" . $dato['nombre'] . ".png\" alt=\"No se puede mostrar la imagen.\" class=\"imagen-elemento\" >";
-                    $stringPrint .= "</div>";
-                    $stringPrint .= "<p>" . $dato['htmlCodigo'] . "</p> <hr>";
+                    $stringPrint .= "<p>" . $dato['htmlCodigo'] . "</p> ";
+                    $stringPrint .= "<img src="."..\\imgs\\".$dato['ruta']." alt='".$dato['ruta']."' class='img-elemento'> <hr>";
                     echo $stringPrint;
                 } ?>
             </div>
