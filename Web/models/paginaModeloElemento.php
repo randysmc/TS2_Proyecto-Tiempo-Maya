@@ -9,7 +9,7 @@ $table = strtolower($tabla);
 $datos = $conn->query("SELECT nombre,significado,htmlCodigo,ruta FROM tiempo_maya." . $table . ";");
 
 $elementos = $datos;
-$informacion = $conn->query("SELECT htmlCodigo FROM tiempomaya.pagina WHERE nombre='" . $tabla . "';");
+$informacion = $conn->query("SELECT htmlCodigo FROM tiempo_maya.pagina WHERE nombre='" . $tabla . "';");
 
 // Obtener la hora actual
 date_default_timezone_set('America/Mexico_City');

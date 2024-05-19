@@ -3,9 +3,9 @@
 
 $conn = include '../conexion/conexion.php';
 $pagina = $_GET['pagina'];
-$informacion = $conn->query("SELECT htmlCodigo,seccion,nombre FROM tiempomaya.pagina WHERE categoria='" . $pagina . "' order by orden;");
-$secciones = $conn->query("SELECT seccion FROM tiempomaya.pagina WHERE categoria='" . $pagina . "' group by seccion  order by orden;");
-$elementos = $conn->query("SELECT nombre FROM tiempomaya.pagina WHERE categoria='" . $pagina . "' AND nombre!='Informacion' AND seccion!='Informacion' order by orden;");
+$informacion = $conn->query("SELECT htmlCodigo_en,seccion,nombre FROM tiempo_maya.pagina WHERE categoria='" . $pagina . "' order by orden;");
+$secciones = $conn->query("SELECT seccion FROM tiempo_maya.pagina WHERE categoria='" . $pagina . "' group by seccion  order by orden;");
+$elementos = $conn->query("SELECT nombre FROM tiempo_maya.pagina WHERE categoria='" . $pagina . "' AND nombre!='Informacion' AND seccion!='Informacion' order by orden;");
 
 date_default_timezone_set('America/Mexico_City');
 $horario = date("H:i:s");
@@ -54,7 +54,7 @@ $horario = date("H:i:s");
                     $stringPrint .= "<h2><a href='paginaModeloElemento.php?elemento=" . $info['nombre'] . "'/>" . $info['nombre'] . " </a></h2>";
                 }
                 $stringPrint .= "<hr>";
-                $stringPrint .= $info['htmlCodigo'];
+                $stringPrint .= $info['htmlCodigo_en'];
                 foreach ($elementos as $elemento) {
                     if ($elemento['nombre'] != 'Uayeb' && $elemento['nombre'] == $info['nombre']) {
                         $tabla = strtolower($elemento['nombre']);
