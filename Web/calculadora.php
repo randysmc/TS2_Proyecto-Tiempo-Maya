@@ -32,6 +32,7 @@ if (is_array($cuenta_larga)) {
 $cholquij = $nahual . " " . strval($energia);
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,6 +42,9 @@ $cholquij = $nahual . " " . strval($energia);
     <?php include "blocks/bloquesCss.html" ?>
     <link rel="stylesheet" href="css/estilo.css?v=<?php echo (rand()); ?>" />
     <link rel="stylesheet" href="css/calculadora.css?v=<?php echo (rand()); ?>" />
+    <script>
+        var hora_actual = '<?php echo $horario; ?>';
+    </script>
 </head>
 <body>
     <?php include "NavBar.php" ?>
@@ -85,5 +89,6 @@ $cholquij = $nahual . " " . strval($energia);
         </section>
     </div>
     <?php include "blocks/bloquesJs1.html" ?>
+    <script src="js/FondoManager.js"> </script>
 </body>
 </html>
