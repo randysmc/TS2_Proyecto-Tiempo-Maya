@@ -3,22 +3,37 @@
 $conn = include "conexion/conexion.php";
 
 if(isset($_GET['fecha'])){
-$fecha_consultar = $_GET['fecha'];
-}else{
-date_default_timezone_set('US/Central');  
-$fecha_consultar = date("Y-m-d");
+    $fecha_consultar = $_GET['fecha'];
+} else {
+    date_default_timezone_set('America/Mexico_city');  
+    $fecha_consultar = date("Y-m-d");
+    $horario = date("H:i:s");
 }
 
 $nahual = include 'backend/buscar/conseguir_nahual_nombre.php';
 $energia = include 'backend/buscar/conseguir_energia_numero.php';
 $haab = include 'backend/buscar/conseguir_uinal_nombre.php';
 $cuenta_larga = include 'backend/buscar/conseguir_fecha_cuenta_larga.php';
-$cholquij = $nahual." ". strval($energia);
+
+// Verificar y convertir a cadena si es necesario
+if (is_array($nahual)) {
+    $nahual = implode(', ', $nahual);
+}
+if (is_array($energia)) {
+    $energia = implode(', ', $energia);
+}
+if (is_array($haab)) {
+    $haab = implode(', ', $haab);
+}
+if (is_array($cuenta_larga)) {
+    $cuenta_larga = implode(', ', $cuenta_larga);
+}
+
+$cholquij = $nahual . " " . strval($energia);
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <title>Tiempo Maya - Calculadora de Mayas</title>
@@ -27,14 +42,11 @@ $cholquij = $nahual." ". strval($energia);
     <link rel="stylesheet" href="css/estilo.css?v=<?php echo (rand()); ?>" />
     <link rel="stylesheet" href="css/calculadora.css?v=<?php echo (rand()); ?>" />
 </head>
-
 <body>
-
     <?php include "NavBar.php" ?>
     <div>
         <section id="inicio">
             <div id="inicioContainer" class="inicio-container">
-
                 <div id='formulario'>
                     <h1>Calculadora</h1>
                     <form action="#" method="GET">
@@ -44,20 +56,18 @@ $cholquij = $nahual." ". strval($energia);
                         </div>
                         <button type="submit" class="btn btn-get-started"><i class="far fa-clock"></i> Calcular</button>
                     </form>
-
                     <div id="tabla">
                         <table class="table table-dark table-striped">
                             <thead>
                                 <tr>
                                     <th scope="col">Calendario</th>
                                     <th scope="col" style="width: 60%;">Fecha</th>
-
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <th scope="row">Calendario Haab</th>
-                                    <td ><?php echo isset($haab) ? $haab : ''; ?></td>
+                                    <td><?php echo isset($haab) ? $haab : ''; ?></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Calendario Cholquij</th>
@@ -71,15 +81,9 @@ $cholquij = $nahual." ". strval($energia);
                         </table>
                     </div>
                 </div>
-
             </div>
+        </section>
     </div>
-    </section>
-    </div>
-
-
     <?php include "blocks/bloquesJs1.html" ?>
-
 </body>
-
 </html>
