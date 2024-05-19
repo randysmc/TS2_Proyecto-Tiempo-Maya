@@ -33,7 +33,7 @@ $cholquij = $nahual['nahual-name'] . " " . strval($energia);
 </head>
 
 <body>
-    <?php include "NavBar.php"; ?>
+
 
 
   <?php include "NavBar.php" ?>
@@ -59,7 +59,7 @@ $cholquij = $nahual['nahual-name'] . " " . strval($energia);
   </div>
 
 
-  <?php include "blocks/bloquesJs1.html" ?>
+
 
     <?php include "blocks/bloquesJs1.html"; ?>
     <script src="js/FondoManager.js"> </script>
