@@ -7,7 +7,8 @@ $informacion = $conn->query("SELECT htmlCodigo,seccion,nombre FROM tiempomaya.pa
 $secciones = $conn->query("SELECT seccion FROM tiempomaya.pagina WHERE categoria='" . $pagina . "' group by seccion  order by orden;");
 $elementos = $conn->query("SELECT nombre FROM tiempomaya.pagina WHERE categoria='" . $pagina . "' AND nombre!='Informacion' AND seccion!='Informacion' order by orden;");
 
-
+date_default_timezone_set('America/Mexico_City');
+$horario = date("H:i:s");
 
 ?>
 
@@ -21,6 +22,9 @@ $elementos = $conn->query("SELECT nombre FROM tiempomaya.pagina WHERE categoria=
     <?php include "../blocks/bloquesCss.html" ?>
     <link rel="stylesheet" href="../css/estilo.css?v=<?php echo (rand()); ?>" />
     <link rel="stylesheet" href="../css/paginaModelo.css?v=<?php echo (rand()); ?>" />
+    <script>
+        var hora_actual = '<?php echo $horario; ?>';
+    </script>
 
 
 </head>
@@ -79,6 +83,7 @@ $elementos = $conn->query("SELECT nombre FROM tiempomaya.pagina WHERE categoria=
 
 
     <?php include "../blocks/bloquesJs.html" ?>
+    <script src="../js/FondoManager.js"> </script>
 
 
 

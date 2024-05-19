@@ -6,6 +6,7 @@ $password_DB = "password";
 $dbname = "tiempomaya";
 
 
+$dbname = "tiempomaya";
 
 // Create connection
 $conn = new mysqli($servername, $username_DB, $password_DB, $dbname, '3306');
