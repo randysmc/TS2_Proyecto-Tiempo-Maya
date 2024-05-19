@@ -30,7 +30,7 @@ class FondoManager {
         } else if (hora >= 9 && hora < 12) {
             return ruta_img + 'fondo2.jpg';
         } else if (hora >= 12 && hora < 15) {
-            return ruta_img + 'fondo2.png';
+            return ruta_img + 'fondo5.png';
         } else if (hora >= 15 && hora < 18) {
             return ruta_img + 'fondo3.png';
         } else if (hora >= 18 && hora < 21) {

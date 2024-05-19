@@ -34,17 +34,7 @@ $cholquij = $nahual['nahual-name'] . " " . strval($energia);
 
 <body>
     <?php include "NavBar.php"; ?>
-    <div>
-        <section id="inicio">
-            <div id="inicioContainer" class="inicio-container">
-                <h1><br><br>Bienvenido al Tiempo Maya</h1>
-                <div id='formulario' style="padding: 15px; width: auto;">
-                    <h5 style="color: whitesmoke;">Calendario Haab : <?php echo is_string($haab) ? $haab : ''; ?></h5>
-                    <h5 style="color: whitesmoke;">Calendario Cholquij : <?php echo isset($cholquij) ? $cholquij : ''; ?></h5>
-                    <h5 style="color: whitesmoke;">Cuenta Larga : <?php echo isset($cuenta_larga) ? $cuenta_larga : ''; ?></h5>
-                    <label style="color: whitesmoke;"><?php echo isset($fecha_consultar) ? $fecha_consultar : ''; ?></label>
-                    <br>
-                    <label style="color: whitesmoke;"><?php echo isset($horario) ? $horario : ''; ?></label>
+
 
   <?php include "NavBar.php" ?>
   <div>
