@@ -1,11 +1,26 @@
 <?php session_start(); ?>
 <?php
 
+
+
 $conn = include '../conexion/conexion.php';
 $pagina = $_GET['pagina'];
-$informacion = $conn->query("SELECT htmlCodigo_en,seccion,nombre FROM tiempo_maya.pagina WHERE categoria='" . $pagina . "' order by orden;");
-$secciones = $conn->query("SELECT seccion FROM tiempo_maya.pagina WHERE categoria='" . $pagina . "' group by seccion  order by orden;");
-$elementos = $conn->query("SELECT nombre FROM tiempo_maya.pagina WHERE categoria='" . $pagina . "' AND nombre!='Informacion' AND seccion!='Informacion' order by orden;");
+
+// Obtener el idioma de la sesión
+$idioma = isset($_SESSION['idioma']) ? $_SESSION['idioma'] : 'es';
+
+// Determinar la columna de contenido según el idioma
+$columnaContenido = 'htmlCodigo';
+if ($idioma == 'en') {
+    $columnaContenido = 'htmlCodigo_en';
+} elseif ($idioma == 'qu') {
+    $columnaContenido = 'htmlCodigo_qu';
+}
+
+// Modificar las consultas para incluir la columna de contenido según el idioma
+$informacion = $conn->query("SELECT $columnaContenido as htmlCodigo, seccion, nombre FROM tiempo_maya.pagina WHERE categoria='" . $pagina . "' ORDER BY orden;");
+$secciones = $conn->query("SELECT seccion FROM tiempo_maya.pagina WHERE categoria='" . $pagina . "' GROUP BY seccion ORDER BY orden;");
+$elementos = $conn->query("SELECT nombre FROM tiempo_maya.pagina WHERE categoria='" . $pagina . "' AND nombre!='Informacion' AND seccion!='Informacion' ORDER BY orden;");
 
 date_default_timezone_set('America/Mexico_City');
 $horario = date("H:i:s");
@@ -54,7 +69,7 @@ $horario = date("H:i:s");
                     $stringPrint .= "<h2><a href='paginaModeloElemento.php?elemento=" . $info['nombre'] . "'/>" . $info['nombre'] . " </a></h2>";
                 }
                 $stringPrint .= "<hr>";
-                $stringPrint .= $info['htmlCodigo_en'];
+                $stringPrint .= $info['htmlCodigo'];
                 foreach ($elementos as $elemento) {
                     if ($elemento['nombre'] != 'Uayeb' && $elemento['nombre'] == $info['nombre']) {
                         $tabla = strtolower($elemento['nombre']);

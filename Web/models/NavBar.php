@@ -78,7 +78,7 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempo_maya.periodo order by ord
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="paginaModelo.php?pagina=Rueda Calendarica">Rueda Calendarica</a>
+              <a class="nav-link" href="paginaModelo.php?pagina=Rueda Calendarica">Rueda CalendaricaAAAAAAAAAAAAAAAAAAAAa</a>
             </li>
             <li>
               <a class="nav-link" href="../linea_tiempo/LineaDeTiempo.php">Linea del Tiempo &nbsp;&nbsp;&nbsp;&nbsp; </a>

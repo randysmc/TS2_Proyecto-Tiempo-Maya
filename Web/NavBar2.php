@@ -1,5 +1,12 @@
 <?php
 
+session_start();
+
+// Obtener el idioma seleccionado de la URL o usar el predeterminado (es)
+$idioma = isset($_GET['idioma']) ? $_GET['idioma'] : (isset($_SESSION['idioma']) ? $_SESSION['idioma'] : 'es');
+$_SESSION['idioma'] = $idioma;
+
+
 $conn = include '../conexion/conexion.php';
 $kinesNav = $conn->query("SELECT nombre FROM tiempo_maya.kin order by nombre;");
 $uinalesNav = $conn->query("SELECT nombre FROM tiempo_maya.uinal order by nombre;");
