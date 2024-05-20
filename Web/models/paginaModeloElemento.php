@@ -1,15 +1,25 @@
 <?php
 session_start();
-?>
 
-<?php
+// Obtener el idioma seleccionado de la URL o usar el predeterminado (es)
+$idioma = isset($_GET['idioma']) ? $_GET['idioma'] : (isset($_SESSION['idioma']) ? $_SESSION['idioma'] : 'es');
+$_SESSION['idioma'] = $idioma;
+
 $conn = include '../conexion/conexion.php';
+
 $tabla = $_GET['elemento'];
 $table = strtolower($tabla);
-$datos = $conn->query("SELECT nombre,significado,htmlCodigo,ruta FROM tiempo_maya." . $table . ";");
 
-$elementos = $datos;
-$informacion = $conn->query("SELECT htmlCodigo FROM tiempo_maya.pagina WHERE nombre='" . $tabla . "';");
+// Determinar la columna de contenido según el idioma
+$columnaContenido = 'htmlCodigo';
+if ($idioma == 'en') {
+    $columnaContenido = 'htmlCodigo_en';
+} elseif ($idioma == 'qu') {
+    $columnaContenido = 'htmlCodigo_qu';
+}
+
+// Consulta SQL para obtener los datos
+$datos = $conn->query("SELECT nombre, significado, $columnaContenido as contenido, ruta FROM tiempo_maya.$table;");
 
 // Obtener la hora actual
 date_default_timezone_set('America/Mexico_City');
@@ -62,8 +72,8 @@ $horario = date("H:i:s");
                 <?php foreach ($datos as $dato) {
                     $stringPrint = "<h4 id='" . $dato['nombre'] . "'>" . $dato['nombre'] . "</h4>";
                     $stringPrint .= "<h5>Significado</h5> <p>" . $dato['significado'] . "</p>";
-                    $stringPrint .= "<p>" . $dato['htmlCodigo'] . "</p> ";
-                    $stringPrint .= "<img src="."..\\imgs\\".$dato['ruta']." alt='".$dato['ruta']."' class='img-elemento'> <hr>";
+                    $stringPrint .= "<p>" . $dato['contenido'] . "</p> ";
+                    $stringPrint .= "<img src='../imgs/" . $dato['ruta'] . "' alt='" . $dato['ruta'] . "' class='img-elemento'> <hr>";
                     echo $stringPrint;
                 } ?>
             </div>
