@@ -479,3 +479,25 @@ h1, h2, h3, h4, h5, h6 {
 .img-cuentalarga {
   width: 150px;
 }
+
+.div-reloj {
+  padding: 30px;
+  background: rgb(108, 2, 2);
+  opacity: 0.8;
+  width: 50%;
+  height: auto;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-family: 'Arial', sans-serif;
+  color: white;
+  font-size: 24px;
+  margin: 0 auto;
+}
+
+.div-reloj h5 {
+  margin: 0;
+  font-size: 48px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}

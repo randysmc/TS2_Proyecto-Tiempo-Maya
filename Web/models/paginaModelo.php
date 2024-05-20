@@ -1,6 +1,5 @@
-<?php session_start(); ?>
 <?php
-
+session_start();
 
 
 $conn = include '../conexion/conexion.php';
@@ -15,6 +14,10 @@ if ($idioma == 'en') {
     $columnaContenido = 'htmlCodigo_en';
 } elseif ($idioma == 'qu') {
     $columnaContenido = 'htmlCodigo_qu';
+}elseif ($idioma == 'kq') {
+    $columnaContenido = 'htmlCodigo_kq';
+} elseif ($idioma == 'yu') {
+    $columnaContenido = 'htmlCodigo_yu';
 }
 
 // Modificar las consultas para incluir la columna de contenido según el idioma

@@ -4,8 +4,9 @@ $conn = include "conexion/conexion.php";
 if (isset($_GET['fecha'])) {
   $fecha_consultar = $_GET['fecha'];
 } else {
-  date_default_timezone_set('US/Central');
-  $fecha_consultar = date("Y-m-d");
+  date_default_timezone_set('America/Mexico_city');  
+    $fecha_consultar = date("Y-m-d");
+    $horario = date("H:i");
 }
 
 $nahual = include 'backend/buscar/conseguir_nahual_nombre.php';
@@ -52,7 +53,11 @@ $cholquij = $nahual['nahual-name'] . " " . strval($energia);
         <div class="div-cuentalarga">
           <h5>Cuenta Larga : <?php echo isset($cuenta_larga) ? $cuenta_larga : ''; ?></h5>
           <img src=".\imgs\cuentaLarga.png" alt="Cuenta larga" class="img-cuentalarga"></img>
-          <!--<label style="color: whitesmoke;"><?php echo isset($fecha_consultar) ? $fecha_consultar : ''; ?></label>-->
+        </div>
+        <br>
+        <div class="div-reloj">
+          
+          <h5>Hora: <?php echo isset($horario) ? $horario : ''; ?> hrs</h5>
         </div>
       </div>
     </section>

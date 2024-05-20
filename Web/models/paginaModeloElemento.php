@@ -16,6 +16,10 @@ if ($idioma == 'en') {
     $columnaContenido = 'htmlCodigo_en';
 } elseif ($idioma == 'qu') {
     $columnaContenido = 'htmlCodigo_qu';
+}elseif ($idioma == 'kq') {
+    $columnaContenido = 'htmlCodigo_kq';
+} elseif ($idioma == 'yu') {
+    $columnaContenido = 'htmlCodigo_yu';
 }
 
 // Consulta SQL para obtener los datos

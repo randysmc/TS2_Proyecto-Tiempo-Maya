@@ -116,14 +116,17 @@ $idioma = isset($_GET['idioma']) ? $_GET['idioma'] : 'es';
             </li>
             <li class="nav-item"><a class="nav-link" href="calculadora.php?idioma=<?php echo $idioma; ?>">Calculadora</a></li>
             <!-- Botones de selección de idioma -->
-            <li class="nav-item">
-              <a class="nav-link" href="?idioma=es">ES</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="?idioma=en">EN</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="?idioma=qu">QU</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Idioma
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="?idioma=es">Español</a>
+                <a class="dropdown-item" href="?idioma=en">Inglés</a>
+                <a class="dropdown-item" href="?idioma=qu">Quiché</a>
+                <a class="dropdown-item" href="?idioma=kq">Kaqchikel</a>
+                <a class="dropdown-item" href="?idioma=yu">Yucateco</a>
+              </div>
             </li>
           </ul>
         </div>
